@@ -11,7 +11,7 @@ producer = KafkaProducer(
 
 status = ["requested","accepted","completed","cancelled"]
 payment_methods = ["credit_card", "debit_card", "paypal", "cash"]
-surge_multiplier = round(random.choice([1.0, 1.2, 1.5, 2.0]), 1)
+driver_speed = round(random.uniform(20, 100), 1)
 
 def generate_transaction():
     return {
@@ -26,8 +26,9 @@ def generate_transaction():
         "request_time": random.randint(0, 23),
         "distance_km": random.randint(1, 100),
         "payment_method": random.choice(payment_methods),
-        "surge_multiplier": surge_multiplier,
-        "status": random.choice(status)
+        "driver_speed": driver_speed,
+        "status": random.choice(status),
+        "ride_duration": random.randint(300, 1800)
 
     }
 
