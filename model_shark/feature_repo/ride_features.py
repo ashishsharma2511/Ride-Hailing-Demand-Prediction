@@ -5,7 +5,7 @@ import os
 
 ride_entity = Entity(name="ride_id", join_keys=["ride_id"])
 
-DATA_PATH = os.path.join(os.path.dirname(__file__), "data/ride_data.parquet")
+DATA_PATH = os.path.join(os.path.dirname(__file__), "data/ride_requests.parquet")
 
 # 2. Point to your raw CSV
 rides_source = FileSource(

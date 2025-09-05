@@ -4,6 +4,19 @@ DATA_PATH = os.path.join(os.path.dirname(__file__), "data/ride_requests.csv")
 # Read CSV
 df = pd.read_csv(DATA_PATH)
 
-DATA_PATH = os.path.join(os.path.dirname(__file__), "data/ride_data.parquet")
-# Save as Parquet
-df.to_parquet(DATA_PATH, engine="pyarrow", index=False)
+
+
+# Convert event_timestamp to timezone-aware datetime
+df['event_timestamp'] = pd.to_datetime(df['event_timestamp'], utc=True)
+
+# Optional: if you have created_timestamp column, convert it as well
+# df['created_timestamp'] = pd.to_datetime(df['created_timestamp'], utc=True)
+
+# Verify the conversion
+print(df.dtypes)
+print(df.head())
+DATA_PATH = os.path.join(os.path.dirname(__file__), "data/ride_requests.parquet")
+# Save back to CSV or Parquet (Parquet recommended for Feast)
+df.to_parquet(DATA_PATH, index=False)
+# OR, if you prefer CSV
+# df.to_csv("path/to/rides_fixed.csv", index=False)
