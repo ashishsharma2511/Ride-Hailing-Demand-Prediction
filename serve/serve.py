@@ -4,7 +4,7 @@ from feast import FeatureStore
 import mlflow.pyfunc
 
 # Load Feast store
-store = FeatureStore(repo_path="../model_sharkfeature_repo")
+store = FeatureStore(repo_path="../model_shark/feature_repo")
 
 # Load MLflow model
 # model = mlflow.pyfunc.load_model("models/ride_model")
