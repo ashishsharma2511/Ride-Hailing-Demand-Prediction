@@ -48,6 +48,6 @@ with mlflow.start_run():
     mae = evaluator.evaluate(predictions)
     mlflow.log_metric("mae", mae)
 
-    rf_model.save("RideHailingModel")
+    rf_model.write().overwrite().save("RideHailingModel")
 
 spark.stop()

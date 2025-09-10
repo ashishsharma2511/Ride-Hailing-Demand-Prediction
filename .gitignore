@@ -1,3 +1,6 @@
 /model/mlartifacts
 /model/mlruns
 /model/RideHailingModel
+/mlruns
+/mlartifacts
+/serve/__pycache__

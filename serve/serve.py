@@ -9,7 +9,7 @@ store = FeatureStore(repo_path="../model_shark/feature_repo")
 # Load MLflow model
 # model = mlflow.pyfunc.load_model("models/ride_model")
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
-model= mlflow.pyfunc.load_model("runs:/35c82da50f8d4b02897cfc86ba1bca40/RideHailingModel")
+model= mlflow.pyfunc.load_model("runs:/0b76e545c4b64041a2c3194f05136cb0/RideHailingModel")
 app = FastAPI(title="Ride Duration Prediction")
 
 # Request body
